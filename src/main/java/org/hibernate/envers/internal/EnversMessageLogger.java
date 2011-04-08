@@ -21,20 +21,23 @@
  * 51 Franklin Street, Fifth Floor
  * Boston, MA  02110-1301  USA
  */
-package org.hibernate.envers;
+package org.hibernate.envers.internal;
 
 import static org.jboss.logging.Logger.Level.WARN;
-import org.hibernate.HibernateLogger;
+import org.hibernate.internal.CoreMessageLogger;
+
 import org.jboss.logging.LogMessage;
 import org.jboss.logging.Message;
 import org.jboss.logging.MessageLogger;
 
 /**
- * Defines internationalized messages for this hibernate-envers, with IDs ranging from 25001 to 30000 inclusively. New messages must
- * be added after the last message defined to ensure message codes are unique.
+ * The jboss-logging {@link MessageLogger} for the hibernate-envers module.  It reserves message ids ranging from
+ * 25001 to 30000 inclusively.
+ * <p/>
+ * New messages must be added after the last message defined to ensure message codes are unique.
  */
 @MessageLogger( projectCode = "HHH" )
-public interface EnversLogger extends HibernateLogger {
+public interface EnversMessageLogger extends CoreMessageLogger {
 
     @LogMessage( level = WARN )
     @Message( value = "ValidTimeAuditStrategy is deprecated, please use ValidityAuditStrategy instead", id = 25001 )
